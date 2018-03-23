@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     float score;
     float total;
 
+
     EditText nameIsEditText;
 
     RadioButton question1RadioButton1;
@@ -46,10 +47,6 @@ public class MainActivity extends AppCompatActivity {
     CheckBox question6CheckBox5;
 
     EditText answer7EditText;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,16 +109,13 @@ public class MainActivity extends AppCompatActivity {
         question1Check4();
 
         /**
-         * Make sure question 1 was not left blank
+         * Make sure question 1 was not left blank notify with a Toast if it was
          */
         if (!question1Check1() && !question1Check2() && !question1Check3() && !question1Check4()) {
-            Context context = getApplicationContext();
-            CharSequence text = nameIs + " " + getString(R.string.forgotAnswer1);
-            int duration = Toast.LENGTH_LONG;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.setGravity(Gravity.TOP | Gravity.LEFT, 0, 0);
-            toast.show();
+            int questionNumber = 1;
+
+            forgotAnswer(nameIs, questionNumber);
         }
 
         /**
@@ -143,16 +137,13 @@ public class MainActivity extends AppCompatActivity {
         question2Check6();
 
         /**
-         * Make sure question 2 was not left blank
+         * Make sure question 2 was not left blank notify with a Toast if it was
          */
         if (!question2Check1() && !question2Check2() && !question2Check3() && !question2Check4() && !question2Check5() && !question2Check6()) {
-            Context context = getApplicationContext();
-            CharSequence text = nameIs + " " + getString(R.string.forgotAnswer2);
-            int duration = Toast.LENGTH_LONG;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 0);
-            toast.show();
+            int questionNumber = 2;
+
+            forgotAnswer(nameIs, questionNumber);
         }
 
         /**
@@ -172,16 +163,13 @@ public class MainActivity extends AppCompatActivity {
         question3Check2();
 
         /**
-         * Make sure question 3 was not left blank
+         * Make sure question 3 was not left blank notify with a Toast if it was
          */
         if (!question3Check1() && !question3Check2()) {
-            Context context = getApplicationContext();
-            CharSequence text = nameIs + " " + getString(R.string.forgotAnswer3);
-            int duration = Toast.LENGTH_LONG;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.setGravity(Gravity.TOP | Gravity.RIGHT, 0, 0);
-            toast.show();
+            int questionNumber = 3;
+
+            forgotAnswer(nameIs, questionNumber);
         }
 
         /**
@@ -198,16 +186,13 @@ public class MainActivity extends AppCompatActivity {
         getAnswer4();
 
         /**
-         * Make sure question 4 was not left blank
+         * Make sure question 4 was not left blank notify with a Toast if it was
          */
         if (getAnswer4().toUpperCase().equals("")) {
-            Context context = getApplicationContext();
-            CharSequence text = nameIs + " " + getString(R.string.forgotAnswer4);
-            int duration = Toast.LENGTH_LONG;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.setGravity(Gravity.BOTTOM| Gravity.RIGHT, 0, 0);
-            toast.show();
+            int questionNumber = 4;
+
+            forgotAnswer(nameIs, questionNumber);
         }
 
         /**
@@ -227,16 +212,13 @@ public class MainActivity extends AppCompatActivity {
         question5Check4();
 
         /**
-         * Make sure question 5 was not left blank
+         * Make sure question 5 was not left blank notify with a Toast if it was
          */
         if (!question5Check1() && !question5Check2() && !question5Check3() && !question5Check4()) {
-            Context context = getApplicationContext();
-            CharSequence text = nameIs + " " + getString(R.string.forgotAnswer5);
-            int duration = Toast.LENGTH_LONG;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
-            toast.show();
+            int questionNumber = 5;
+
+            forgotAnswer(nameIs, questionNumber);
         }
 
         /**
@@ -257,16 +239,13 @@ public class MainActivity extends AppCompatActivity {
         question6Check5();
 
         /**
-         * Make sure question 6 was not left blank
+         * Make sure question 6 was not left blank notify with a Toast if it was
          */
         if (!question6Check1() && !question6Check3() && !question6Check4() && !question6Check2() && !question6Check5()) {
-            Context context = getApplicationContext();
-            CharSequence text = nameIs + " " + getString(R.string.forgotAnswer6);
-            int duration = Toast.LENGTH_LONG;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.setGravity(Gravity.BOTTOM | Gravity.LEFT, 0, 0);
-            toast.show();
+            int questionNumber = 6;
+
+            forgotAnswer(nameIs, questionNumber);
         }
 
         /**
@@ -282,16 +261,13 @@ public class MainActivity extends AppCompatActivity {
         getAnswer7();
 
         /**
-         * Make sure question 7 was not left blank
+         * Make sure question 7 was not left blank notify with a Toast if it was
          */
         if (getAnswer7().toLowerCase().equals("")) {
-            Context context = getApplicationContext();
-            CharSequence text = nameIs + " " + getString(R.string.forgotAnswer7);
-            int duration = Toast.LENGTH_LONG;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.setGravity(Gravity.BOTTOM | Gravity.RIGHT, 0, 0);
-            toast.show();
+            int questionNumber = 7;
+
+            forgotAnswer(nameIs, questionNumber);
         }
 
         /**
@@ -497,6 +473,20 @@ public class MainActivity extends AppCompatActivity {
 
         String whatIsAnswer7 = answer7EditText.getText().toString();
         return (whatIsAnswer7);
+    }
+
+    /**
+     * Function for Toast if a question was not answered
+     * @param nameIs User's name
+     */
+    public void forgotAnswer (String nameIs, int questionNumber) {
+        Context context = getApplicationContext();
+        CharSequence text = nameIs + " " + getString(R.string.forgotAnswer) + " " + questionNumber;
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
+        toast.show();
     }
 
     /**
