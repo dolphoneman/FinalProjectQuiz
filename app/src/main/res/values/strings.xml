@@ -42,7 +42,7 @@
     <string name="reset">Reset</string>
 
     <string name="hello">Hello</string>
-    <string name="score">Your score is %</string>
+    <string name="score">Your score is </string>
 
     <string name="forgotAnswer1">Did you forget to answer question 1?</string>
     <string name="forgotAnswer2">Did you forget to answer question 2?</string>

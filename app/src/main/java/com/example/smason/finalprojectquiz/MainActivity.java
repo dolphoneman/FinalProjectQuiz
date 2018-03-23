@@ -15,10 +15,79 @@ public class MainActivity extends AppCompatActivity {
     float score;
     float total;
 
+    EditText nameIsEditText;
+
+    RadioButton question1RadioButton1;
+    RadioButton question1RadioButton2;
+    RadioButton question1RadioButton3;
+    RadioButton question1RadioButton4;
+
+    CheckBox question2CheckBox1;
+    CheckBox question2CheckBox2;
+    CheckBox question2CheckBox3;
+    CheckBox question2CheckBox4;
+    CheckBox question2CheckBox5;
+    CheckBox question2CheckBox6;
+
+    RadioButton question3RadioButton1;
+    RadioButton question3RadioButton2;
+
+    EditText answer4EditText;
+
+    RadioButton question5RadioButton1;
+    RadioButton question5RadioButton2;
+    RadioButton question5RadioButton3;
+    RadioButton question5RadioButton4;
+
+    CheckBox question6CheckBox1;
+    CheckBox question6CheckBox2;
+    CheckBox question6CheckBox3;
+    CheckBox question6CheckBox4;
+    CheckBox question6CheckBox5;
+
+    EditText answer7EditText;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        nameIsEditText = findViewById(R.id.nameField);
+
+        question1RadioButton1 = findViewById(R.id.question1radio1);
+        question1RadioButton2 = findViewById(R.id.question1radio2);
+        question1RadioButton3 = findViewById(R.id.question1radio3);
+        question1RadioButton4 = findViewById(R.id.question1radio4);
+
+        question2CheckBox1 = findViewById(R.id.question2check1);
+        question2CheckBox2 = findViewById(R.id.question2check2);
+        question2CheckBox3 = findViewById(R.id.question2check3);
+        question2CheckBox4 = findViewById(R.id.question2check4);
+        question2CheckBox5 = findViewById(R.id.question2check5);
+        question2CheckBox6 = findViewById(R.id.question2check6);
+
+        question3RadioButton1 = findViewById(R.id.question3true);
+        question3RadioButton2 = findViewById(R.id.question3false);
+
+        answer4EditText = findViewById(R.id.question4answer);
+
+        question5RadioButton1 = findViewById(R.id.question5radio1);
+        question5RadioButton2 = findViewById(R.id.question5radio2);
+        question5RadioButton3 = findViewById(R.id.question5radio3);
+        question5RadioButton4 = findViewById(R.id.question5radio4);
+
+        question6CheckBox1 = findViewById(R.id.question6check1);
+        question6CheckBox2 = findViewById(R.id.question6check2);
+        question6CheckBox3 = findViewById(R.id.question6check3);
+        question6CheckBox4 = findViewById(R.id.question6check4);
+        question6CheckBox5 = findViewById(R.id.question6check5);
+
+        answer7EditText = findViewById(R.id.question7answer);
+
     }
 
     /**
@@ -237,6 +306,7 @@ public class MainActivity extends AppCompatActivity {
          * Get total and display for the final score
          */
         total = (score / 7) * 100;
+        total = (int) total;
 
 
         /**displayScore(total);*/
@@ -245,7 +315,7 @@ public class MainActivity extends AppCompatActivity {
          * Toast for final score after clicking the submit button
          */
         Context context = getApplicationContext();
-        CharSequence text = nameIs + " " + getString(R.string.score) + total +". You had " + score + " answers correct.";
+        CharSequence text = nameIs + " " + getString(R.string.score) + " " +total +"%"+". You had " + score + " answers correct.";
         int duration = Toast.LENGTH_LONG;
 
 
@@ -259,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
      *
      */
     public String getName (){
-        EditText nameIsEditText = findViewById(R.id.nameField);
+
         String whatIsName = nameIsEditText.getText().toString();
         return (whatIsName);
     }
@@ -268,25 +338,25 @@ public class MainActivity extends AppCompatActivity {
      * Get logic for question 1 and pass to submitAnswers method
      */
     public boolean question1Check1() {
-        RadioButton question1RadioButton1 = findViewById(R.id.question1radio1);
+
         boolean question1RadioButton1Checked = question1RadioButton1.isChecked();
         return (question1RadioButton1Checked);
     }
 
     public boolean question1Check2() {
-        RadioButton question1RadioButton2 = findViewById(R.id.question1radio2);
+
         boolean question1RadioButton2Checked = question1RadioButton2.isChecked();
         return (question1RadioButton2Checked);
     }
 
     public boolean question1Check3() {
-        RadioButton question1RadioButton3 = findViewById(R.id.question1radio3);
+
         boolean question1RadioButton3Checked = question1RadioButton3.isChecked();
         return (question1RadioButton3Checked);
     }
 
     public boolean question1Check4() {
-        RadioButton question1RadioButton4 = findViewById(R.id.question1radio4);
+
         boolean question1RadioButton4Checked = question1RadioButton4.isChecked();
         return (question1RadioButton4Checked);
     }
@@ -296,37 +366,37 @@ public class MainActivity extends AppCompatActivity {
      * Get Check box logic for question 2 and pass to submitAnswers method
      */
     public boolean question2Check1() {
-        CheckBox question2CheckBox1 = findViewById(R.id.question2check1);
+
         boolean question2CheckBox1Checked = question2CheckBox1.isChecked();
         return (question2CheckBox1Checked);
     }
 
     public boolean question2Check2() {
-        CheckBox question2CheckBox2 = findViewById(R.id.question2check2);
-        boolean question2CheckBox2Checked = question2CheckBox2.isChecked();
+
+         boolean question2CheckBox2Checked = question2CheckBox2.isChecked();
         return (question2CheckBox2Checked);
     }
 
     public boolean question2Check3() {
-        CheckBox question2CheckBox3 = findViewById(R.id.question2check3);
+
         boolean question2CheckBox3Checked = question2CheckBox3.isChecked();
         return (question2CheckBox3Checked);
     }
 
     public boolean question2Check4() {
-        CheckBox question2CheckBox4 = findViewById(R.id.question2check4);
+
         boolean question2CheckBox4Checked = question2CheckBox4.isChecked();
         return (question2CheckBox4Checked);
     }
 
     public boolean question2Check5() {
-        CheckBox question2CheckBox5 = findViewById(R.id.question2check5);
+
         boolean question2CheckBox5Checked = question2CheckBox5.isChecked();
         return (question2CheckBox5Checked);
     }
 
     public boolean question2Check6() {
-        CheckBox question2CheckBox6 = findViewById(R.id.question2check6);
+
         boolean question2CheckBox6Checked = question2CheckBox6.isChecked();
         return (question2CheckBox6Checked);
     }
@@ -337,13 +407,13 @@ public class MainActivity extends AppCompatActivity {
      * Get logic for question 3 and pass to submitAnswers method
      */
     public boolean question3Check1() {
-        RadioButton question3RadioButton1 = findViewById(R.id.question3true);
+
         boolean question3RadioButton1Checked = question3RadioButton1.isChecked();
         return (question3RadioButton1Checked);
     }
 
     public boolean question3Check2() {
-        RadioButton question3RadioButton2 = findViewById(R.id.question3false);
+
         boolean question3RadioButton2Checked = question3RadioButton2.isChecked();
         return (question3RadioButton2Checked);
     }
@@ -352,7 +422,7 @@ public class MainActivity extends AppCompatActivity {
      * Grab text for answer 4 pass to submitAnswers method
      */
     public String getAnswer4 () {
-        EditText answer4EditText = findViewById(R.id.question4answer);
+
         String whatIsAnswer4 = answer4EditText.getText().toString();
         return (whatIsAnswer4);
     }
@@ -362,25 +432,25 @@ public class MainActivity extends AppCompatActivity {
      * Get logic for question 5 and pass to submitAnswers method
      */
     public boolean question5Check1() {
-        RadioButton question5RadioButton1 = findViewById(R.id.question5radio1);
+
         boolean question5RadioButton1Checked = question5RadioButton1.isChecked();
         return (question5RadioButton1Checked);
     }
 
     public boolean question5Check2() {
-        RadioButton question5RadioButton2 = findViewById(R.id.question5radio2);
+
         boolean question5RadioButton2Checked = question5RadioButton2.isChecked();
         return (question5RadioButton2Checked);
     }
 
     public boolean question5Check3() {
-        RadioButton question5RadioButton3 = findViewById(R.id.question5radio3);
+
         boolean question5RadioButton3Checked = question5RadioButton3.isChecked();
         return (question5RadioButton3Checked);
     }
 
     public boolean question5Check4() {
-        RadioButton question5RadioButton4 = findViewById(R.id.question5radio4);
+
         boolean question5RadioButton4Checked = question5RadioButton4.isChecked();
         return (question5RadioButton4Checked);
     }
@@ -390,31 +460,31 @@ public class MainActivity extends AppCompatActivity {
      * Get Check box logic for question 6 and pass to submitAnswers method
      */
     public boolean question6Check1() {
-        CheckBox question6CheckBox1 = findViewById(R.id.question6check1);
+
         boolean question6CheckBox1Checked = question6CheckBox1.isChecked();
         return (question6CheckBox1Checked);
     }
 
     public boolean question6Check2() {
-        CheckBox question6CheckBox2 = findViewById(R.id.question6check2);
+
         boolean question6CheckBox2Checked = question6CheckBox2.isChecked();
         return (question6CheckBox2Checked);
     }
 
     public boolean question6Check3() {
-        CheckBox question6CheckBox3 = findViewById(R.id.question6check3);
+
         boolean question6CheckBox3Checked = question6CheckBox3.isChecked();
         return (question6CheckBox3Checked);
     }
 
     public boolean question6Check4() {
-        CheckBox question6CheckBox4 = findViewById(R.id.question6check4);
+
         boolean question6CheckBox4Checked = question6CheckBox4.isChecked();
         return (question6CheckBox4Checked);
     }
 
     public boolean question6Check5() {
-        CheckBox question6CheckBox5 = findViewById(R.id.question6check5);
+
         boolean question6CheckBox5Checked = question6CheckBox5.isChecked();
         return (question6CheckBox5Checked);
     }
@@ -424,7 +494,7 @@ public class MainActivity extends AppCompatActivity {
      * Grab text for answer 7 pass to submitAnswers method
      */
     public String getAnswer7 () {
-        EditText answer7EditText = findViewById(R.id.question7answer);
+
         String whatIsAnswer7 = answer7EditText.getText().toString();
         return (whatIsAnswer7);
     }
@@ -432,68 +502,46 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Logic to reset answers when reset button is clicked
      */
+
     public void resetAnswers(View view) {
         score = 0;
         total = 0;
 
-        EditText nameIsEditText = findViewById(R.id.nameField);
+
         nameIsEditText.setText("");
 
-        RadioButton question1RadioButton1 = findViewById(R.id.question1radio1);
+
         question1RadioButton1.setChecked(false);
-
-        RadioButton question1RadioButton2 = findViewById(R.id.question1radio2);
         question1RadioButton2.setChecked(false);
+        question1RadioButton3.setChecked(false);
+        question1RadioButton4.setChecked(false);
 
-        CheckBox question2CheckBox1 = findViewById(R.id.question2check1);
+
         question2CheckBox1.setChecked(false);
-
-        CheckBox question2CheckBox2 = findViewById(R.id.question2check2);
         question2CheckBox2.setChecked(false);
-
-        CheckBox question2CheckBox3 = findViewById(R.id.question2check3);
         question2CheckBox3.setChecked(false);
-
-        CheckBox question2CheckBox4 = findViewById(R.id.question2check4);
         question2CheckBox4.setChecked(false);
-
-        CheckBox question2CheckBox5 = findViewById(R.id.question2check5);
         question2CheckBox5.setChecked(false);
-
-        CheckBox question2CheckBox6 = findViewById(R.id.question2check6);
         question2CheckBox6.setChecked(false);
 
-        RadioButton question3RadioButton1 = findViewById(R.id.question3true);
         question3RadioButton1.setChecked(false);
-
-        RadioButton question3RadioButton2 = findViewById(R.id.question3false);
         question3RadioButton2.setChecked(false);
 
-        EditText answer4EditText = findViewById(R.id.question4answer);
         answer4EditText.setText("");
 
-        RadioButton question5RadioButton1 = findViewById(R.id.question5radio1);
+
         question5RadioButton1.setChecked(false);
-
-        RadioButton question5RadioButton2 = findViewById(R.id.question5radio2);
         question5RadioButton2.setChecked(false);
+        question5RadioButton3.setChecked(false);
+        question5RadioButton4.setChecked(false);
 
-        CheckBox question6CheckBox1 = findViewById(R.id.question6check1);
+
         question6CheckBox1.setChecked(false);
-
-        CheckBox question6CheckBox2 = findViewById(R.id.question6check2);
         question6CheckBox2.setChecked(false);
-
-        CheckBox question6CheckBox3 = findViewById(R.id.question6check3);
         question6CheckBox3.setChecked(false);
-
-        CheckBox question6CheckBox4 = findViewById(R.id.question6check4);
         question6CheckBox4.setChecked(false);
-
-        CheckBox question6CheckBox5 = findViewById(R.id.question6check5);
         question6CheckBox5.setChecked(false);
 
-        EditText answer7EditText = findViewById(R.id.question7answer);
         answer7EditText.setText("");
     }
 
