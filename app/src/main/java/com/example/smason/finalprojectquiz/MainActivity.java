@@ -1,5 +1,6 @@
 package com.example.smason.finalprojectquiz;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -290,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Toast for final score after clicking the submit button
          */
-        Context context = getApplicationContext();
+        Context context = MainActivity.this;
         CharSequence text = nameIs + " " + getString(R.string.score) + " " +total +"%"+". You had " + score + " answers correct.";
         int duration = Toast.LENGTH_LONG;
 
@@ -476,11 +477,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Function for Toast if a question was not answered
+     * Function for a Toast if a question was not answered
      * @param nameIs User's name
      */
     public void forgotAnswer (String nameIs, int questionNumber) {
-        Context context = getApplicationContext();
+        Context context = MainActivity.this;
         CharSequence text = nameIs + " " + getString(R.string.forgotAnswer) + " " + questionNumber;
         int duration = Toast.LENGTH_LONG;
 
