@@ -12,6 +12,12 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.view.Gravity.BOTTOM;
+import static android.view.Gravity.CENTER;
+import static android.view.Gravity.END;
+import static android.view.Gravity.START;
+import static android.view.Gravity.TOP;
+
 public class MainActivity extends AppCompatActivity {
     float score;
     float total;
@@ -116,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
             int questionNumber = 1;
 
-            forgotAnswer(nameIs, questionNumber);
+            forgotAnswer(nameIs, questionNumber, TOP, START);
         }
 
         /**
@@ -144,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
             int questionNumber = 2;
 
-            forgotAnswer(nameIs, questionNumber);
+            forgotAnswer(nameIs, questionNumber, CENTER, START);
         }
 
         /**
@@ -170,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
             int questionNumber = 3;
 
-            forgotAnswer(nameIs, questionNumber);
+            forgotAnswer(nameIs, questionNumber, BOTTOM, START);
         }
 
         /**
@@ -193,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
             int questionNumber = 4;
 
-            forgotAnswer(nameIs, questionNumber);
+            forgotAnswer(nameIs, questionNumber, TOP, END);
         }
 
         /**
@@ -219,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
             int questionNumber = 5;
 
-            forgotAnswer(nameIs, questionNumber);
+            forgotAnswer(nameIs, questionNumber, CENTER, END);
         }
 
         /**
@@ -246,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
 
             int questionNumber = 6;
 
-            forgotAnswer(nameIs, questionNumber);
+            forgotAnswer(nameIs, questionNumber, BOTTOM, END);
         }
 
         /**
@@ -268,7 +274,7 @@ public class MainActivity extends AppCompatActivity {
 
             int questionNumber = 7;
 
-            forgotAnswer(nameIs, questionNumber);
+            forgotAnswer(nameIs, questionNumber, TOP, END);
         }
 
         /**
@@ -480,13 +486,13 @@ public class MainActivity extends AppCompatActivity {
      * Function for a Toast if a question was not answered
      * @param nameIs User's name
      */
-    public void forgotAnswer (String nameIs, int questionNumber) {
+    public void forgotAnswer (String nameIs, int questionNumber, int positiony, int positionx) {
         Context context = MainActivity.this;
         CharSequence text = nameIs + " " + getString(R.string.forgotAnswer) + " " + questionNumber;
         int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(context, text, duration);
-        toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
+        toast.setGravity(positiony| positionx, 0, 0);
         toast.show();
     }
 
